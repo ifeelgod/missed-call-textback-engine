@@ -15,13 +15,13 @@ Below, you have exact word-for-word scripts, cold emails, and social media posts
 
 # SECTION 1: THE "6:30 PM MISSED CALL AUDIT" SOP
 
-### 📢 1. Tell Them What You Are Going to Tell Them
+### Section Roadmap & Overview
 We are going to learn how to do a simple 6:30 PM phone audit on Google Maps to find local plumbers and HVAC techs who are missing calls, record a quick 45-second Loom video, and send them a friendly pitch.
 
-### 💡 2. Tell Them Why You Are Going to Tell Them
+### Why Proof-First Outreach Works
 Doing a quick audit first means you have **real proof** before you ever talk to them! When you show a contractor that their own phone line went unanswered at 6:34 PM with no text back, they will instantly see why your service is so valuable.
 
-### 🛠️ 3. Tell Them (The Audit SOP)
+### The Outbound Audit Protocol
 
 1. Open Google Maps at **6:30 PM local time**.
 2. Search: `Plumbers near me`, `HVAC repair near me`, `Electricians near me`.
@@ -29,23 +29,23 @@ Doing a quick audit first means you have **real proof** before you ever talk to 
 4. If a call goes to voicemail without an auto-reply text in 3 minutes, record a 45-second video:
    > *"Hey [Contractor Name], I called your shop line tonight at 6:34 PM to test your speed-to-lead. As you can see, the call went to voicemail and 10 minutes later I haven't received a text back. 85% of emergency callers hang up and call the next plumber on Google. I built a simple system that texts missed callers back in 20 seconds. Try our live demo line at [Demo Phone Number]!"*
 
-### 📌 4. Tell Them What You Told Them
+### Key Takeaways & Section Summary
 We learned how to perform 6:30 PM call audits, record 45-second proof videos, and send value-first pitch messages.
 
-### 🎉 5. If They Completed, Congratulate Them!
+### Milestone Celebration!
 **GREAT JOB!** You now know how to find high-intent prospects without spending a single dollar on ads!
 
 ---
 
 # SECTION 2: DIRECT OUTREACH DM & EMAIL SCRIPTS
 
-### 📢 1. Tell Them What You Are Going to Tell Them
+### Section Roadmap & Overview
 We are going to review copy-paste scripts for LinkedIn DMs, cold emails, and social media posts.
 
-### 💡 2. Tell Them Why You Are Going to Tell Them
+### Why Word-for-Word Scripts Remove Stress
 Having exact word-for-word scripts means you never have to worry about what to say or how to phrase your message.
 
-### 🛠️ 3. Tell Them (Scripts & Campaign)
+### Outreach Templates & Sequence
 
 #### B2B Developer DM Script (Selling the $49.99 Spec)
 ```text
@@ -70,8 +70,8 @@ Best,
 [YOUR_NAME]
 ```
 
-### 📌 4. Tell Them What You Told Them
+### Key Takeaways & Section Summary
 We reviewed direct DM scripts, cold email sequences, and outreach templates tailored for developers and trade contractors.
 
-### 🎉 5. If They Completed, Congratulate Them!
+### Milestone Celebration!
 **YOU DID IT!** You have a complete, professional outreach toolkit ready to go. You are doing fantastic!

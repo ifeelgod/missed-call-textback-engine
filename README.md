@@ -17,14 +17,14 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ---
 
-## 📁 Repository Structure & Pedagogical Framework
+## 📁 Repository Structure & Teaching Approach
 
-Every document in this repository follows a gentle, 5-part teaching framework:
-1. **Tell Them What You Are Going to Tell Them** (Clear Roadmap)
-2. **Tell Them Why You Are Going to Tell Them** (Business Context & Motivation)
-3. **Tell Them** (Step-by-Step Instructions & Production Code)
-4. **Tell Them What You Told Them** (Quick Summary Recap)
-5. **If They Completed, Congratulate Them!** (Milestone Celebration)
+Every document in this repository follows a clean, 5-part teaching approach embedded directly into the content:
+1. **Section Roadmap & Overview** (Clear Section Preview)
+2. **Context & Business Motivation** (Why This Step Matters & WIIFM)
+3. **Core Technical Content & Procedures** (Step-by-Step Instructions & Production Code)
+4. **Key Takeaways & Section Summary** (Summary Recap)
+5. **Milestone Celebration** (Progress & Encouragement)
 
 ---
 

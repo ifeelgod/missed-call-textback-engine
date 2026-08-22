@@ -15,7 +15,7 @@ If you have ever felt hesitant about setting up online payments, building sales 
 
 # CHAPTER 1: STOREFOUNDATION & PAYMENT GATEWAY SETUP
 
-### Chapter Roadmap & Overview
+### Section Roadmap & Overview
 In this chapter, we are going to set up your free Payhip account, link your payment gateways (Stripe and PayPal) so money lands directly in your bank account, configure your store branding, and create your three digital product offer tiers ($24.99, $49.99, and $124.99).
 
 ### Why Proper Store Foundation Matters
@@ -38,6 +38,8 @@ Setting up your store foundation correctly from day one eliminates tech headache
 #### Step 3: Creating Your 3 Digital Offer Product Tiers
 
 In your Payhip Dashboard, click **Products > Add New Product**, select **Digital Products**, and create the following three product listings:
+
+![Payhip Product Tier Configuration](./payhip_tiers_diagram.jpg)
 
 ```
 +-----------------------------------------------------------------------------------+
@@ -71,7 +73,7 @@ We set up your Payhip store, linked Stripe and PayPal for instant payouts, and c
 
 # CHAPTER 2: CRAFTING A "20X SALES PAGE" THAT SELLS, SELLS, SELLS
 
-### Chapter Roadmap & Overview
+### Section Roadmap & Overview
 In this chapter, we are going to examine the visual funnel architecture of a high-converting Payhip sales page, review the full-color funnel diagram, and learn how to construct a "20x Sales Page" that turns storefront visitors into paying customers using direct-response copywriting and irresistible call-to-actions (CTAs).
 
 ### Why a 20x Sales Page Matters
@@ -140,7 +142,7 @@ We reviewed the complete 20x sales funnel visual diagram, learned how to constru
 
 # CHAPTER 3: THE 5-STEP PAYHIP STOREFRONT TESTING & AUDIT PROTOCOL
 
-### Chapter Roadmap & Overview
+### Section Roadmap & Overview
 In this chapter, we are going to walk through the exact 5-step protocol for testing your Payhip store before sending live traffic, inspect our full-color testing flowchart diagram, and run a complete 100% free test purchase.
 
 ### Why Pre-Launch Testing Matters
@@ -208,7 +210,7 @@ We inspected the 5-step testing flowchart diagram, created a test coupon, simula
 
 # CHAPTER 4: ADVANCED PAYHIP MONETIZATION & CONVERSION TRICKS
 
-### Chapter Roadmap & Overview
+### Section Roadmap & Overview
 In this final chapter, we are going to look at advanced features built into Payhip that can double your revenue, including setting up an Affiliate Program, setting up Cross-Sells, and enabling conversion tracking.
 
 ### Why Advanced Features Scale Your Income

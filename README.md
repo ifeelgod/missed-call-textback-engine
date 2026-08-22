@@ -11,9 +11,16 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ---
 
-## 🎨 System Logic Map (Full-Color Graphic)
+## 🎨 System Graphics & Visual Architecture
 
+### 1. System Architecture Logic Map
 ![End-to-End Trigger-to-Dispatch Logic Map](./logic_map_diagram.jpg)
+
+### 2. Payhip 20x Sales Funnel Architecture
+![Payhip 20x Sales Funnel Architecture](./payhip_funnel_diagram.jpg)
+
+### 3. Payhip 5-Step Testing Protocol
+![Payhip 5-Step Testing Protocol](./payhip_testing_diagram.jpg)
 
 ---
 
@@ -30,6 +37,7 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 📄 Key Repository Files
 
+- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** Complete step-by-step eBook guide for setting up Payhip products, building a 20x sales page that sells, and executing the 5-step testing protocol.
 - **[`blueprint_spec.md`](./blueprint_spec.md):** The master 6-module technical specification blueprint covering architecture, carrier benchmarks, N8N step-by-step nodes, SMS template library, onboarding SOPs, lead gen audit machine, and TCPA/10DLC compliance.
 - **[`n8n_missed_call_textback_workflow.json`](./n8n_missed_call_textback_workflow.json):** 1-click importable N8N JSON workflow schema.
 - **[`sales_copy_payhip.md`](./sales_copy_payhip.md):** High-converting Payhip sales landing page copy written using the Problem-Agitate-Solution framework.
@@ -39,7 +47,8 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 🚀 Quick Start Steps
 
-1. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
-2. **Set Telephony Keys:** Add your Twilio/Telnyx API credentials and DeepSeek API key.
-3. **Turn On Call Forwarding:** Follow the CCF star codes in `blueprint_spec.md` (Module 4).
-4. **Launch Outreach:** Use the warm scripts in `outreach_toolkit.md` to acquire contractor clients!
+1. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your Payhip store.
+2. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
+3. **Set Telephony Keys:** Add your Twilio/Telnyx API credentials and DeepSeek API key.
+4. **Turn On Call Forwarding:** Follow the CCF star codes in `blueprint_spec.md` (Module 4).
+5. **Launch Outreach:** Use the warm scripts in `outreach_toolkit.md` to acquire contractor clients!

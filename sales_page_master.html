@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 30-Minute Missed-Call Text-Back Engine: Turnkey Deployment & Reselling Spec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Outfit:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060913;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --border: rgba(0, 229, 255, 0.25);
+      --cyan: #00e5ff;
+      --green: #10b981;
+      --gold: #fbbf24;
+      --magenta: #d946ef;
+      --purple: #a855f7;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top Announcement Bar */
+    .announcement {
+      background: linear-gradient(90deg, #00c6ff, #0072ff, #a855f7);
+      color: #fff;
+      text-align: center;
+      padding: 12px 15px;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+    }
+    .badge-master {
+      display: inline-block;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--cyan) 50%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subheadline {
+      font-size: 1.35rem;
+      color: var(--text-muted);
+      max-width: 900px;
+      margin: 0 auto 35px;
+    }
+
+    /* Live Demo Box */
+    .demo-box {
+      background: rgba(251, 191, 36, 0.08);
+      border: 2px dashed var(--gold);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 800px;
+      text-align: center;
+    }
+    .demo-phone {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--gold);
+      background: #000;
+      padding: 12px 25px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 15px 0;
+      letter-spacing: 3px;
+      border: 1px solid var(--gold);
+    }
+
+    /* Pain Section */
+    .pain-section {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(15, 23, 42, 0.95));
+      border: 2px solid var(--danger);
+      border-radius: 24px;
+      padding: 45px;
+      margin: 50px 0;
+    }
+    .pain-section h2 { color: var(--danger); font-size: 2.4rem; margin-bottom: 20px; font-family: 'Outfit'; }
+
+    /* Side-by-Side Pricing Table */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+    .price-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .price-card:hover { transform: translateY(-8px); }
+    .price-card.featured {
+      border: 3px solid var(--green);
+      box-shadow: 0 0 35px rgba(16, 185, 129, 0.4);
+    }
+    .popular-tag {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--gold), #f59e0b);
+      color: #000;
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .price-card h3 { font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 10px; }
+    .price-num { font-size: 3.5rem; font-weight: 900; color: #fff; margin: 15px 0; }
+    .price-card ul { list-style: none; margin: 20px 0; }
+    .price-card ul li { margin-bottom: 12px; color: var(--text-muted); font-size: 15px; }
+
+    .btn-card {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 18px;
+      border-radius: 50px;
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    .btn-tier1 { background: rgba(0, 229, 255, 0.15); border: 1px solid var(--cyan); color: var(--cyan); }
+    .btn-tier1:hover { background: var(--cyan); color: #000; }
+    .btn-tier2 { background: linear-gradient(90deg, var(--green), var(--cyan)); color: #000; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4); }
+    .btn-tier2:hover { transform: scale(1.04); }
+    .btn-tier3 { background: linear-gradient(90deg, var(--magenta), var(--purple)); color: #fff; box-shadow: 0 10px 25px rgba(217, 70, 239, 0.4); }
+    .btn-tier3:hover { transform: scale(1.04); }
+
+    img.diagram {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      margin: 40px 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    }
+
+    footer { text-align: center; color: var(--text-muted); padding: 60px 0; font-size: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body>
+
+  <div class="announcement">🚀 MASTER STOREFRONT: CHOOSE YOUR DEPLOYMENT PACKAGE BELOW</div>
+
+  <div class="container">
+    
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <span class="badge-master">Master Commercial & Technical Storefront</span>
+      <h1>The 30-Minute Missed-Call<br>Text-Back Engine Blueprint</h1>
+      <p class="subheadline">Build, package, and resell a $297 setup + $149/month recurring SMS recovery service to local trade contractors (plumbers, HVAC, electricians) with 97.6% net profit margins.</p>
+    </header>
+
+    <!-- LIVE DEMO BOX -->
+    <div class="demo-box">
+      <h3 style="color:var(--gold); font-family:'Outfit';">🧪 Test The Live System Right Now On Your Mobile Phone!</h3>
+      <p>Call our live test line, let it ring 2 times, and hang up:</p>
+      <div class="demo-phone">(555) 019-2831</div>
+      <p><em>Check your mobile phone inbox 15 seconds later for an automated text-back!</em></p>
+    </div>
+
+    <!-- PAIN & KNIFE TWISTING -->
+    <section class="pain-section">
+      <h2>The $1,200 Voicemail Leak In Your Local Market</h2>
+      <p>Every single day, local trade contractors lose thousands of dollars because their hands are dirty on a job site. A customer calls with a burst pipe or broken AC. The contractor can't answer.</p>
+      <br>
+      <p><strong>85% of emergency callers hang up on voicemail and call the next plumber on Google.</strong> The competitor who texts back in 20 seconds locks in the $1,200 repair job.</p>
+      <br>
+      <p>When you hand contractors this 20-second Missed-Call Text-Back system, you aren't selling software—you are handing them <strong>$10,000 in saved revenue every month</strong> while earning $149/month in recurring retainer income.</p>
+    </section>
+
+    <!-- DIAGRAM EMBED: TIER CONFIGURATION -->
+    <h2 style="text-align:center; font-family:'Outfit'; font-size:2.3rem; margin-top:50px;">Payhip Product Tier Configuration</h2>
+    <img src="./payhip_tiers_diagram.jpg" alt="Payhip Product Tier Configuration" class="diagram">
+
+    <!-- PRICING CARDS GRID -->
+    <div class="pricing-grid">
+      
+      <!-- TIER 1 -->
+      <div class="price-card">
+        <div>
+          <h3 style="color:var(--cyan);">Tier 1: Affiliate DIY Access</h3>
+          <p style="color:var(--text-muted);">Self-Serve Digital Access</p>
+          <div class="price-num">$24.99</div>
+          <ul>
+            <li>✔ PDF Technical Architecture Spec</li>
+            <li>✔ Basic SMS Copy Templates</li>
+            <li>✔ Carrier CCF Star Codes Guide</li>
+            <li>✔ TCPA Opt-Out Guidelines</li>
+          </ul>
+        </div>
+        <a href="https://payhip.com/b/your-tier1-link" class="btn-card btn-tier1">BUY TIER 1 ACCESS NOW</a>
+      </div>
+
+      <!-- TIER 2 (FEATURED) -->
+      <div class="price-card featured">
+        <div class="popular-tag">MOST POPULAR / RECOMMENDED</div>
+        <div>
+          <h3 style="color:var(--green);">Tier 2: Standard Package</h3>
+          <p style="color:var(--text-muted);">The Complete Turnkey Package</p>
+          <div class="price-num">$49.99</div>
+          <ul>
+            <li>✔ <strong>Master 6-Module Blueprint (`blueprint_spec.md`)</strong></li>
+            <li>✔ <strong>Importable N8N Workflow JSON (`n8n_workflow.json`)</strong></li>
+            <li>✔ <strong>Marketing & Ads Toolkit (`outreach_toolkit.md`)</strong></li>
+            <li>✔ Whitelabel 45-Sec Loom Pitch Script</li>
+            <li>✔ "6:30 PM Call Audit" Lead Gen SOP</li>
+            <li>✔ TCPA & 10DLC Compliance Field Guide</li>
+          </ul>
+        </div>
+        <a href="https://payhip.com/b/your-tier2-link" class="btn-card btn-tier2">GET STANDARD PACKAGE NOW</a>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="price-card">
+        <div>
+          <h3 style="color:var(--magenta);">Tier 3: DFY Installation</h3>
+          <p style="color:var(--text-muted);">White-Glove Hands-Free Setup</p>
+          <div class="price-num">$124.99</div>
+          <ul>
+            <li>✔ <strong>Everything in Tier 2 Standard Package</strong></li>
+            <li>✔ N8N Cloud VPS Host Setup</li>
+            <li>✔ Twilio/Telnyx API Webhook Wiring</li>
+            <li>✔ 1-on-1 Live Line Validation Test Call</li>
+            <li>✔ Post-Purchase Intake Form Redirect</li>
+            <li>✔ 10DLC Brand Submission Assistance</li>
+          </ul>
+        </div>
+        <a href="https://payhip.com/b/your-tier3-link" class="btn-card btn-tier3">GET DFY INSTALLATION NOW</a>
+      </div>
+
+    </div>
+
+    <!-- VALUE STACK DIAGRAM -->
+    <h2 style="text-align:center; font-family:'Outfit'; font-size:2.3rem; margin-top:50px;">20x Value Stack Breakdown</h2>
+    <img src="./payhip_value_stack_diagram.jpg" alt="20x Value Stack Breakdown" class="diagram">
+
+    <!-- FUNNEL DIAGRAM -->
+    <h2 style="text-align:center; font-family:'Outfit'; font-size:2.3rem; margin-top:50px;">System Architecture Logic Map</h2>
+    <img src="./logic_map_diagram.jpg" alt="End-to-End Trigger-to-Dispatch Logic Map" class="diagram">
+
+    <!-- OMNI-CHANNEL FUNNEL DIAGRAM -->
+    <img src="./social_ad_funnel_diagram.jpg" alt="Omni-Channel Social Media & Video Ad Conversion Funnel" class="diagram">
+
+    <!-- GUARANTEE BOX -->
+    <div style="background:rgba(251,191,36,0.05); border:2px solid var(--gold); border-radius:24px; padding:40px; text-align:center; margin:60px 0;">
+      <h3 style="color:var(--gold); font-size:2rem; margin-bottom:15px; font-family:'Outfit';">🛡️ 100% 30-Day Zero-Risk Money-Back Guarantee</h3>
+      <p style="font-size:1.1rem; max-width:800px; margin:0 auto;">Download the spec package, import the N8N workflow, and execute the 6:30 PM Call Audit strategy. If you don't land your first paying contractor client within 30 days, email support for an immediate 100% refund. Zero risk!</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Turnkey Tech Specs. All Rights Reserved. | <a href="./privacy_disclaimer.md" style="color:var(--cyan);">Privacy Policy</a> | <a href="./affiliate_terms_and_conditions.md" style="color:var(--cyan);">Terms</a> | <a href="./affiliate_recruitment_page.md" style="color:var(--gold);">Affiliates (30%)</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

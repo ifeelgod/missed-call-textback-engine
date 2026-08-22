@@ -11,6 +11,15 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ---
 
+## 🌐 Blockbuster Full-Color HTML Sales Pages
+
+- **[`sales_page_master.html`](./sales_page_master.html):** The Master Multi-Tier Blockbuster Sales Landing Page showcasing all 3 offer tiers ($24.99, $49.99, $124.99) with live demo callout boxes, pain agitation, value stack diagrams, and guarantee.
+- **[`sales_page_tier1_diy.html`](./sales_page_tier1_diy.html):** Dedicated full-color HTML sales page for Tier 1: Affiliate DIY Access ($24.99).
+- **[`sales_page_tier2_standard.html`](./sales_page_tier2_standard.html):** Dedicated blockbuster HTML sales page for Tier 2: Standard Complete Package ($49.99 - Flagship Offer).
+- **[`sales_page_tier3_dfy.html`](./sales_page_tier3_dfy.html):** Dedicated full-color HTML sales page for Tier 3: Done-For-You Agency Installation ($124.99).
+
+---
+
 ## 🎨 System Graphics & Visual Architecture
 
 ### 1. System Architecture Logic Map
@@ -52,22 +61,22 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 📄 Key Repository Files
 
-- **[`outreach_toolkit.md`](./outreach_toolkit.md):** Complete omni-channel sales and marketing toolkit with separate sections for **Agency Sellers** and **Affiliate Sellers** across Facebook, Instagram, TikTok, and LinkedIn (including scroll-stopping hooks, post captions, 30s short video scripts, multi-slide carousels, direct response ad copy, and 45s video ad scripts).
-- **[`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md):** High-converting partner recruitment page showcasing our 30% commission structure, payout math, and 3-step registration flow.
-- **[`affiliate_terms_and_conditions.md`](./affiliate_terms_and_conditions.md):** Official affiliate program terms, promotional rules, cookie tracking window (60 days), and zero-tolerance spam guidelines.
-- **[`privacy_disclaimer.md`](./privacy_disclaimer.md):** Comprehensive privacy policy, TCPA telephony disclosures, 10DLC transparency rules, and commercial earnings disclaimer.
-- **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header card.
-- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** eBook guide for setting up Payhip products, building a 20x sales page that sells, and executing the 5-step testing protocol.
-- **[`blueprint_spec.md`](./blueprint_spec.md):** Master 6-module technical specification blueprint covering architecture, carrier benchmarks, N8N step-by-step nodes, SMS template library, onboarding SOPs, lead gen audit machine, and TCPA/10DLC compliance.
+- **[`sales_page_master.html`](./sales_page_master.html):** Full-color master HTML sales page.
+- **[`outreach_toolkit.md`](./outreach_toolkit.md):** Complete omni-channel sales and marketing toolkit with separate sections for **Agency Sellers** and **Affiliate Sellers** across Facebook, Instagram, TikTok, and LinkedIn.
+- **[`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md):** 30% affiliate recruitment page.
+- **[`affiliate_terms_and_conditions.md`](./affiliate_terms_and_conditions.md):** Official affiliate program terms and conditions.
+- **[`privacy_disclaimer.md`](./privacy_disclaimer.md):** Privacy policy, TCPA disclosures, and legal disclaimers.
+- **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header.
+- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** Complete Payhip Masterclass eBook.
+- **[`blueprint_spec.md`](./blueprint_spec.md):** Master 6-module technical specification blueprint.
 - **[`n8n_missed_call_textback_workflow.json`](./n8n_missed_call_textback_workflow.json):** 1-click importable N8N JSON workflow schema.
-- **[`sales_copy_payhip.md`](./sales_copy_payhip.md):** High-converting Payhip sales landing page copy.
 
 ---
 
 ## 🚀 Quick Start Steps
 
-1. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your Payhip store.
-2. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
-3. **Launch Marketing & Ads:** Use [`outreach_toolkit.md`](./outreach_toolkit.md) for Agency or Affiliate promotions on FB, IG, TikTok, and LinkedIn.
-4. **Recruit Affiliate Partners:** Share [`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md) with tech content creators and developer communities.
+1. **Host HTML Sales Pages:** Open [`sales_page_master.html`](./sales_page_master.html) or dedicated tier pages in your browser or landing page builder.
+2. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your Payhip store.
+3. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
+4. **Launch Outreach:** Use [`outreach_toolkit.md`](./outreach_toolkit.md) for social media and video ad promotion.
 5. **Send Intake Questionnaire:** Hand [`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md) to new contractor clients!

@@ -1,0 +1,275 @@
+{
+  "name": "Missed Call Text Back Engine - Production Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "missed-call-trigger",
+        "options": {}
+      },
+      "name": "Webhook - Missed Call Listener",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "id": "node-1-webhook-listener"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract Caller ID and sanitize phone number\nconst body = $input.first().json.body || $input.first().json;\nconst rawPhone = body.From || body.caller_number || body.phone || '';\nconst cleanedPhone = rawPhone.replace(/[^+\\d]/g, '');\nconst callStatus = body.CallStatus || body.event || 'no-answer';\n\n// Basic suppression check (in-memory or static list evaluation)\nconst optOutList = ['+15550000000']; // Populated dynamically in production\nconst isOptedOut = optOutList.includes(cleanedPhone);\n\nreturn [{\n  json: {\n    rawPhone,\n    cleanedPhone,\n    callStatus,\n    isOptedOut,\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "name": "Code - Normalize & Check Suppressions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        470,
+        300
+      ],
+      "id": "node-2-normalize-check"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isOptedOut }}",
+              "value2": false
+            }
+          ]
+        }
+      },
+      "name": "Filter - Suppress Opted-Out",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        690,
+        300
+      ],
+      "id": "node-3-filter-suppressed"
+    },
+    {
+      "parameters": {
+        "amount": 20,
+        "unit": "seconds"
+      },
+      "name": "Wait - 20s Human Delay",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        910,
+        300
+      ],
+      "id": "node-4-human-delay"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Business Hours Evaluator (Mon-Fri 8am-6pm local time)\nconst now = new Date();\nconst day = now.getDay(); // 0 = Sun, 6 = Sat\nconst hour = now.getHours(); // 0-23\n\nlet isBusinessHours = false;\nif (day >= 1 && day <= 5) {\n  if (hour >= 8 && hour < 18) {\n    isBusinessHours = true;\n  }\n}\n\nreturn [{\n  json: {\n    ...$input.first().json,\n    isBusinessHours,\n    evaluatedAt: now.toISOString()\n  }\n}];"
+      },
+      "name": "Code - Business Hours Evaluator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1130,
+        300
+      ],
+      "id": "node-5-business-hours"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.deepseek.com/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.DEEPSEEK_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"deepseek-chat\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are an automated speed-to-lead receptionist for Apex Trades Contractor. Craft a humanized SMS auto-reply under 150 characters for a missed call. Context: Business Hours = {{ $json.isBusinessHours }}. Rules: Under 150 chars, no AI mention, include 'Reply STOP to cancel'. If Business Hours=true: ask how we can help. If false: state closed, morning callback, add 'Reply URGENT for emergency dispatch'. Return raw text only.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Generate SMS for missed call from {{ $json.cleanedPhone }}\"\n    }\n  ],\n  \"temperature\": 0.3\n}"
+      },
+      "name": "HTTP - DeepSeek AI Intent Node",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1350,
+        300
+      ],
+      "id": "node-6-deepseek-ai"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract generated text from DeepSeek response\nconst response = $input.first().json;\nlet smsContent = '';\nif (response.choices && response.choices.length > 0) {\n  smsContent = response.choices[0].message.content.trim();\n} else {\n  // Fallback template\n  smsContent = \"Hey! On a job site & missed your call. How can we help with your project? Reply STOP to cancel.\";\n}\n\n// Ensure length < 160 chars\nif (smsContent.length > 160) {\n  smsContent = smsContent.substring(0, 155) + \" STOP\";\n}\n\nreturn [{\n  json: {\n    toPhone: $('Code - Business Hours Evaluator').first().json.cleanedPhone,\n    smsBody: smsContent\n  }\n}];"
+      },
+      "name": "Code - Process AI Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1570,
+        300
+      ],
+      "id": "node-7-process-ai"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twilio.com/2010-04-01/Accounts/{{ $env.TWILIO_ACCOUNT_SID }}/Messages.json",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Basic {{ Buffer.from($env.TWILIO_ACCOUNT_SID + ':' + $env.TWILIO_AUTH_TOKEN).toString('base64') }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "string",
+        "body": "=To={{ encodeURIComponent($json.toPhone) }}&From={{ encodeURIComponent($env.TWILIO_PHONE_NUMBER) }}&Body={{ encodeURIComponent($json.smsBody) }}"
+      },
+      "name": "HTTP - Outbound SMS Dispatch",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1790,
+        300
+      ],
+      "id": "node-8-sms-dispatch"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "incoming-sms-optout",
+        "options": {}
+      },
+      "name": "Webhook - Incoming SMS Listener",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        250,
+        550
+      ],
+      "id": "node-9-optout-listener"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Detect Opt-Out Keywords\nconst body = $input.first().json.body || $input.first().json;\nconst fromPhone = (body.From || '').replace(/[^+\\d]/g, '');\nconst smsBody = (body.Body || '').toUpperCase().trim();\n\nconst optOutKeywords = ['STOP', 'UNSUBSCRIBE', 'CANCEL', 'QUIT', 'END'];\nconst isOptOutAction = optOutKeywords.some(keyword => smsBody.includes(keyword));\n\nreturn [{\n  json: {\n    fromPhone,\n    smsBody,\n    isOptOutAction,\n    action: isOptOutAction ? 'ADD_TO_SUPPRESSION_LIST' : 'NONE'\n  }\n}];"
+      },
+      "name": "Code - Opt-Out Keyword Handler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        470,
+        550
+      ],
+      "id": "node-10-optout-handler"
+    }
+  ],
+  "connections": {
+    "Webhook - Missed Call Listener": {
+      "main": [
+        [
+          {
+            "node": "Code - Normalize & Check Suppressions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Normalize & Check Suppressions": {
+      "main": [
+        [
+          {
+            "node": "Filter - Suppress Opted-Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter - Suppress Opted-Out": {
+      "main": [
+        [
+          {
+            "node": "Wait - 20s Human Delay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait - 20s Human Delay": {
+      "main": [
+        [
+          {
+            "node": "Code - Business Hours Evaluator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Business Hours Evaluator": {
+      "main": [
+        [
+          {
+            "node": "HTTP - DeepSeek AI Intent Node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP - DeepSeek AI Intent Node": {
+      "main": [
+        [
+          {
+            "node": "Code - Process AI Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Process AI Response": {
+      "main": [
+        [
+          {
+            "node": "HTTP - Outbound SMS Dispatch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook - Incoming SMS Listener": {
+      "main": [
+        [
+          {
+            "node": "Code - Opt-Out Keyword Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

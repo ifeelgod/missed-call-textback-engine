@@ -11,12 +11,21 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ---
 
+## 🛍️ Payhip Standard Product Description Editor Copy
+
+- **[`payhip_standard_editor_master.md`](./payhip_standard_editor_master.md):** Master Product Description copy for Payhip's native standard editor.
+- **[`payhip_standard_editor_tier1_diy.md`](./payhip_standard_editor_tier1_diy.md):** Native description copy for Tier 1: Affiliate DIY Access ($24.99).
+- **[`payhip_standard_editor_tier2_standard.md`](./payhip_standard_editor_tier2_standard.md):** Native description copy for Tier 2: Standard Complete Package ($49.99 - Flagship Offer).
+- **[`payhip_standard_editor_tier3_dfy.md`](./payhip_standard_editor_tier3_dfy.md):** Native description copy for Tier 3: DFY Agency Installation ($124.99).
+
+---
+
 ## 🌐 Blockbuster Full-Color HTML Sales Pages
 
-- **[`sales_page_master.html`](./sales_page_master.html):** The Master Multi-Tier Blockbuster Sales Landing Page showcasing all 3 offer tiers ($24.99, $49.99, $124.99) with live demo callout boxes, pain agitation, value stack diagrams, and guarantee.
-- **[`sales_page_tier1_diy.html`](./sales_page_tier1_diy.html):** Dedicated full-color HTML sales page for Tier 1: Affiliate DIY Access ($24.99).
-- **[`sales_page_tier2_standard.html`](./sales_page_tier2_standard.html):** Dedicated blockbuster HTML sales page for Tier 2: Standard Complete Package ($49.99 - Flagship Offer).
-- **[`sales_page_tier3_dfy.html`](./sales_page_tier3_dfy.html):** Dedicated full-color HTML sales page for Tier 3: Done-For-You Agency Installation ($124.99).
+- **[`sales_page_master.html`](./sales_page_master.html):** Master Multi-Tier Blockbuster Sales Landing Page showcasing all 3 offer tiers ($24.99, $49.99, $124.99).
+- **[`sales_page_tier1_diy.html`](./sales_page_tier1_diy.html):** Dedicated full-color HTML sales page for Tier 1 ($24.99).
+- **[`sales_page_tier2_standard.html`](./sales_page_tier2_standard.html):** Dedicated blockbuster HTML sales page for Tier 2 ($49.99).
+- **[`sales_page_tier3_dfy.html`](./sales_page_tier3_dfy.html):** Dedicated full-color HTML sales page for Tier 3 ($124.99).
 
 ---
 
@@ -61,13 +70,12 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 📄 Key Repository Files
 
-- **[`sales_page_master.html`](./sales_page_master.html):** Full-color master HTML sales page.
-- **[`outreach_toolkit.md`](./outreach_toolkit.md):** Complete omni-channel sales and marketing toolkit with separate sections for **Agency Sellers** and **Affiliate Sellers** across Facebook, Instagram, TikTok, and LinkedIn.
+- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** Complete Payhip Masterclass eBook.
+- **[`outreach_toolkit.md`](./outreach_toolkit.md):** Complete omni-channel sales and marketing toolkit for Agency & Affiliate sellers.
 - **[`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md):** 30% affiliate recruitment page.
 - **[`affiliate_terms_and_conditions.md`](./affiliate_terms_and_conditions.md):** Official affiliate program terms and conditions.
 - **[`privacy_disclaimer.md`](./privacy_disclaimer.md):** Privacy policy, TCPA disclosures, and legal disclaimers.
 - **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header.
-- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** Complete Payhip Masterclass eBook.
 - **[`blueprint_spec.md`](./blueprint_spec.md):** Master 6-module technical specification blueprint.
 - **[`n8n_missed_call_textback_workflow.json`](./n8n_missed_call_textback_workflow.json):** 1-click importable N8N JSON workflow schema.
 
@@ -75,8 +83,8 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 🚀 Quick Start Steps
 
-1. **Host HTML Sales Pages:** Open [`sales_page_master.html`](./sales_page_master.html) or dedicated tier pages in your browser or landing page builder.
-2. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your Payhip store.
-3. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
-4. **Launch Outreach:** Use [`outreach_toolkit.md`](./outreach_toolkit.md) for social media and video ad promotion.
-5. **Send Intake Questionnaire:** Hand [`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md) to new contractor clients!
+1. **Copy Payhip Standard Descriptions:** Paste [`payhip_standard_editor_tier2_standard.md`](./payhip_standard_editor_tier2_standard.md) into your Payhip product description editor.
+2. **Host HTML Sales Pages:** Open [`sales_page_master.html`](./sales_page_master.html) in your browser or landing page builder.
+3. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your store.
+4. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
+5. **Launch Outreach:** Use [`outreach_toolkit.md`](./outreach_toolkit.md) for social media and video ad promotion!

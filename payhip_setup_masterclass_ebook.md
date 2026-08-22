@@ -74,12 +74,12 @@ We set up your Payhip store, linked Stripe and PayPal for instant payouts, and c
 # CHAPTER 2: CRAFTING A "20X SALES PAGE" THAT SELLS, SELLS, SELLS
 
 ### Section Roadmap & Overview
-In this chapter, we are going to examine the visual funnel architecture of a high-converting Payhip sales page, review the full-color funnel diagram, and learn how to construct a "20x Sales Page" that turns storefront visitors into paying customers using direct-response copywriting and irresistible call-to-actions (CTAs).
+In this chapter, we are going to examine the visual funnel architecture of a high-converting Payhip sales page, review the full-color funnel and value stack diagrams, and learn how to construct a "20x Sales Page" that turns storefront visitors into paying customers using direct-response copywriting and irresistible call-to-actions (CTAs).
 
 ### Why a 20x Sales Page Matters
 A standard product page simply lists features, but a **20x Sales Page** speaks directly to the buyer's deepest desires and fears. By stacking $1,497+ of total value, anchoring your price at $49.99, and eliminating all purchase risk, your sales page converts warm visitors into customers at a high 3.8% to 5%+ conversion rate.
 
-### 20x Sales Page Architecture & Visual Funnel Diagram
+### 20x Sales Page Architecture & Visual Funnel Diagrams
 
 #### 2.1 Payhip High-Converting Sales Funnel Architecture
 
@@ -106,25 +106,32 @@ A standard product page simply lists features, but a **20x Sales Page** speaks d
 
 ---
 
-#### 2.2 The 10 Elements of a 20x Sales Page
+#### 2.2 The 20x Value Stack Breakdown
+
+![20x Value Stack Breakdown](./payhip_value_stack_diagram.jpg)
+
+```markdown
+| Included Deliverable | Standalone Value |
+| :--- | :--- |
+| Master 6-Module N8N System Spec Blueprint | $497.00 |
+| Importable N8N Production Workflow JSON Schema | $397.00 |
+| Whitelabel 45-Second Loom Video Pitch Script | $297.00 |
+| TCPA & 10DLC Carrier Compliance Field Guide | $197.00 |
+| "6:30 PM Call Audit" Lead Acquisition SOP | $197.00 |
+| **TOTAL COMBINED VALUE:** | **$1,585.00** |
+| **YOUR INVESTMENT TODAY (STANDARD TIER):** | **ONLY $49.99** |
+```
+
+---
+
+#### 2.3 The 10 Elements of a 20x Sales Page
 
 When building your sales page inside Payhip's Store Builder (**Products > Edit Product > Page Builder**), include these 10 high-converting structural elements:
 
 1. **The Hero Headline Hook:** A bold, benefit-driven headline focused on financial outcomes (*"Stop Selling $500 Websites. Start Selling $297 + $149/mo Micro-Systems"*).
 2. **Interactive Live Demo Box:** A highlighted callout box instructing prospects to call your live test line to experience the system on their own phone.
 3. **Problem-Agitation Breakdown:** Explaining why missed calls cost contractors $500–$3,000 every single week and why traditional freelancing is an exhausting treadmill.
-4. **The 20x Value Stack Table:** 
-   ```markdown
-   | Included Deliverable | Standalone Value |
-   | :--- | :--- |
-   | Master 6-Module N8N System Spec Blueprint | $497.00 |
-   | Importable N8N Production Workflow JSON Schema | $397.00 |
-   | Whitelabel 45-Second Loom Video Pitch Script | $297.00 |
-   | TCPA & 10DLC Carrier Compliance Field Guide | $197.00 |
-   | "6:30 PM Call Audit" Lead Acquisition SOP | $197.00 |
-   | **TOTAL COMBINED VALUE:** | **$1,585.00** |
-   | **YOUR INVESTMENT TODAY (STANDARD TIER):** | **ONLY $49.99** |
-   ```
+4. **The 20x Value Stack Table & Graphic:** Stacking $1,585 of standalone value and offering it today for just $49.99.
 5. **Multi-Tier Offer Pricing Cards:** Clear pricing boxes highlighting Tier 2 ($49.99) as the "MOST POPULAR" choice.
 6. **Social Proof & Testimonials:** Screenshot proof, call logs, or early beta tester quotes verifying system speed.
 7. **Technical FAQ Accordion:** Answering questions about N8N hosting, carrier pricing, 10DLC rules, and client onboarding.
@@ -133,7 +140,7 @@ When building your sales page inside Payhip's Store Builder (**Products > Edit P
 10. **Floating Sticky CTA Buttons:** High-contrast buy buttons (*"GET INSTANT ACCESS TO THE $49.99 SPEC NOW"*).
 
 ### Key Takeaways & Chapter Summary
-We reviewed the complete 20x sales funnel visual diagram, learned how to construct a value-stacked product description in Payhip, and covered the 10 direct-response copy elements that maximize sales conversions.
+We reviewed the complete 20x sales funnel visual diagram, the 20x value stack graphic, and covered the 10 direct-response copy elements that maximize sales conversions.
 
 ### Milestone Celebration!
 **YOU DID AN AMAZING JOB!** Chapter 2 is complete! You now know how to design a high-converting sales page that sells your product on autopilot. Keep up the fantastic work!

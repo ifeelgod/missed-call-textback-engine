@@ -22,7 +22,10 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 ### 3. Payhip Product Tier Configuration
 ![Payhip Product Tier Configuration](./payhip_tiers_diagram.jpg)
 
-### 4. Payhip 5-Step Testing Protocol
+### 4. 20x Value Stack Breakdown
+![20x Value Stack Breakdown](./payhip_value_stack_diagram.jpg)
+
+### 5. Payhip 5-Step Testing Protocol
 ![Payhip 5-Step Testing Protocol](./payhip_testing_diagram.jpg)
 
 ---

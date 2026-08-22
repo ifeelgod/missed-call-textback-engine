@@ -1,7 +1,7 @@
 # The 30-Minute Missed-Call Text-Back Engine: Turnkey Deployment & Reselling Spec
 
 > **A Warm, Supportive Blueprint & Micro-SaaS Business Package**  
-> Built for freelance developers, tech consultants, and agency owners.
+> Built for freelance developers, tech consultants, agency owners, and affiliate sellers.
 
 ---
 
@@ -25,10 +25,16 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 ### 4. 20x Value Stack Breakdown
 ![20x Value Stack Breakdown](./payhip_value_stack_diagram.jpg)
 
-### 5. Contractor Onboarding Workflow
+### 5. Omni-Channel Social Media & Video Ad Funnel
+![Omni-Channel Social Media & Video Ad Conversion Funnel](./social_ad_funnel_diagram.jpg)
+
+### 6. Payhip 30% Affiliate Program & Payout Flow
+![Payhip 30% Affiliate Program & Payout Flow](./affiliate_program_diagram.jpg)
+
+### 7. Contractor Onboarding Workflow
 ![4-Step Contractor Technical Onboarding Workflow](./intake_flow_diagram.jpg)
 
-### 6. Payhip 5-Step Testing Protocol
+### 8. Payhip 5-Step Testing Protocol
 ![Payhip 5-Step Testing Protocol](./payhip_testing_diagram.jpg)
 
 ---
@@ -46,12 +52,15 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 📄 Key Repository Files
 
-- **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Complete client intake questionnaire with customizable agency header, 9 expanded technical intake sections, and dual sign-off authorization block.
-- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** Complete step-by-step eBook guide for setting up Payhip products, building a 20x sales page that sells, and executing the 5-step testing protocol.
-- **[`blueprint_spec.md`](./blueprint_spec.md):** The master 6-module technical specification blueprint covering architecture, carrier benchmarks, N8N step-by-step nodes, SMS template library, onboarding SOPs, lead gen audit machine, and TCPA/10DLC compliance.
+- **[`outreach_toolkit.md`](./outreach_toolkit.md):** Complete omni-channel sales and marketing toolkit with separate sections for **Agency Sellers** and **Affiliate Sellers** across Facebook, Instagram, TikTok, and LinkedIn (including scroll-stopping hooks, post captions, 30s short video scripts, multi-slide carousels, direct response ad copy, and 45s video ad scripts).
+- **[`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md):** High-converting partner recruitment page showcasing our 30% commission structure, payout math, and 3-step registration flow.
+- **[`affiliate_terms_and_conditions.md`](./affiliate_terms_and_conditions.md):** Official affiliate program terms, promotional rules, cookie tracking window (60 days), and zero-tolerance spam guidelines.
+- **[`privacy_disclaimer.md`](./privacy_disclaimer.md):** Comprehensive privacy policy, TCPA telephony disclosures, 10DLC transparency rules, and commercial earnings disclaimer.
+- **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header card.
+- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** eBook guide for setting up Payhip products, building a 20x sales page that sells, and executing the 5-step testing protocol.
+- **[`blueprint_spec.md`](./blueprint_spec.md):** Master 6-module technical specification blueprint covering architecture, carrier benchmarks, N8N step-by-step nodes, SMS template library, onboarding SOPs, lead gen audit machine, and TCPA/10DLC compliance.
 - **[`n8n_missed_call_textback_workflow.json`](./n8n_missed_call_textback_workflow.json):** 1-click importable N8N JSON workflow schema.
-- **[`sales_copy_payhip.md`](./sales_copy_payhip.md):** High-converting Payhip sales landing page copy written using the Problem-Agitate-Solution framework.
-- **[`outreach_toolkit.md`](./outreach_toolkit.md):** Outreach scripts, 45-second Loom pitch transcript, 6:30 PM call audit SOP, cold emails, and social media posts.
+- **[`sales_copy_payhip.md`](./sales_copy_payhip.md):** High-converting Payhip sales landing page copy.
 
 ---
 
@@ -59,6 +68,6 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 1. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your Payhip store.
 2. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
-3. **Send Intake Questionnaire:** Hand [`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md) to your new contractor client.
-4. **Turn On Call Forwarding:** Follow the CCF star codes in `blueprint_spec.md` (Module 4).
-5. **Launch Outreach:** Use the warm scripts in `outreach_toolkit.md` to acquire contractor clients!
+3. **Launch Marketing & Ads:** Use [`outreach_toolkit.md`](./outreach_toolkit.md) for Agency or Affiliate promotions on FB, IG, TikTok, and LinkedIn.
+4. **Recruit Affiliate Partners:** Share [`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md) with tech content creators and developer communities.
+5. **Send Intake Questionnaire:** Hand [`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md) to new contractor clients!

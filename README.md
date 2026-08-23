@@ -11,6 +11,14 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ---
 
+## 🛠️ Complete Technical Workbooks & Field Guides
+
+- **[`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md):** Complete N8N & Telephony Interface Setup Workbook (Docker VPS hosting, Twilio/Telnyx/Sent.dm/Sendillo webhook wiring, node-by-node JavaScript code, 5-step stress testing, and master troubleshooting SOP matrix).
+- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** eBook guide for setting up Payhip products, building a 20x sales page that sells, and executing the 5-step testing protocol.
+- **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header card.
+
+---
+
 ## 🛍️ Payhip Standard Product Description Editor Copy
 
 - **[`payhip_standard_editor_master.md`](./payhip_standard_editor_master.md):** Master Product Description copy for Payhip's native standard editor.
@@ -31,28 +39,31 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ## 🎨 System Graphics & Visual Architecture
 
-### 1. System Architecture Logic Map
+### 1. N8N & Telephony Integration Workflow
+![N8N & Telephony Interface Integration Workflow](./n8n_telecom_diagram.jpg)
+
+### 2. System Architecture Logic Map
 ![End-to-End Trigger-to-Dispatch Logic Map](./logic_map_diagram.jpg)
 
-### 2. Payhip 20x Sales Funnel Architecture
+### 3. Payhip 20x Sales Funnel Architecture
 ![Payhip 20x Sales Funnel Architecture](./payhip_funnel_diagram.jpg)
 
-### 3. Payhip Product Tier Configuration
+### 4. Payhip Product Tier Configuration
 ![Payhip Product Tier Configuration](./payhip_tiers_diagram.jpg)
 
-### 4. 20x Value Stack Breakdown
+### 5. 20x Value Stack Breakdown
 ![20x Value Stack Breakdown](./payhip_value_stack_diagram.jpg)
 
-### 5. Omni-Channel Social Media & Video Ad Funnel
+### 6. Omni-Channel Social Media & Video Ad Funnel
 ![Omni-Channel Social Media & Video Ad Conversion Funnel](./social_ad_funnel_diagram.jpg)
 
-### 6. Payhip 30% Affiliate Program & Payout Flow
+### 7. Payhip 30% Affiliate Program & Payout Flow
 ![Payhip 30% Affiliate Program & Payout Flow](./affiliate_program_diagram.jpg)
 
-### 7. Contractor Onboarding Workflow
+### 8. Contractor Onboarding Workflow
 ![4-Step Contractor Technical Onboarding Workflow](./intake_flow_diagram.jpg)
 
-### 8. Payhip 5-Step Testing Protocol
+### 9. Payhip 5-Step Testing Protocol
 ![Payhip 5-Step Testing Protocol](./payhip_testing_diagram.jpg)
 
 ---
@@ -70,12 +81,11 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 📄 Key Repository Files
 
-- **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** Complete Payhip Masterclass eBook.
+- **[`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md):** Complete N8N & Telephony Interface Setup Workbook.
 - **[`outreach_toolkit.md`](./outreach_toolkit.md):** Complete omni-channel sales and marketing toolkit for Agency & Affiliate sellers.
 - **[`affiliate_recruitment_page.md`](./affiliate_recruitment_page.md):** 30% affiliate recruitment page.
 - **[`affiliate_terms_and_conditions.md`](./affiliate_terms_and_conditions.md):** Official affiliate program terms and conditions.
 - **[`privacy_disclaimer.md`](./privacy_disclaimer.md):** Privacy policy, TCPA disclosures, and legal disclaimers.
-- **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header.
 - **[`blueprint_spec.md`](./blueprint_spec.md):** Master 6-module technical specification blueprint.
 - **[`n8n_missed_call_textback_workflow.json`](./n8n_missed_call_textback_workflow.json):** 1-click importable N8N JSON workflow schema.
 
@@ -83,8 +93,8 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 🚀 Quick Start Steps
 
-1. **Copy Payhip Standard Descriptions:** Paste [`payhip_standard_editor_tier2_standard.md`](./payhip_standard_editor_tier2_standard.md) into your Payhip product description editor.
-2. **Host HTML Sales Pages:** Open [`sales_page_master.html`](./sales_page_master.html) in your browser or landing page builder.
-3. **Read Payhip Masterclass eBook:** Follow [`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md) to launch and test your store.
+1. **Follow N8N & Telephony Workbook:** Open [`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md) to set up Docker, wire Twilio/Telnyx webhooks, and execute load testing.
+2. **Copy Payhip Standard Descriptions:** Paste [`payhip_standard_editor_tier2_standard.md`](./payhip_standard_editor_tier2_standard.md) into your Payhip product description editor.
+3. **Host HTML Sales Pages:** Open [`sales_page_master.html`](./sales_page_master.html) in your browser or landing page builder.
 4. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.
 5. **Launch Outreach:** Use [`outreach_toolkit.md`](./outreach_toolkit.md) for social media and video ad promotion!

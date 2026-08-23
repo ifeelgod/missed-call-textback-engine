@@ -73,7 +73,7 @@ Choosing the right phone provider can feel overwhelming with all the options out
 
 #### Client Cost Math (10 Active Clients Averaging 35 Missed Calls / Month)
 - **Total Revenue (10 clients x $149/mo):** $1,490.00 / month
-- **Total Costs (Numbers + SMS + N8N VPS + DeepSeek AI):** $27.05 / month
+- **Total Costs (Numbers + SMS + Railway N8N + DeepSeek AI):** $27.05 / month
 - **Your Net Profit:** **$1,462.95 / month (98.1% Net Margin)**
 
 ### Key Takeaways & Section Summary

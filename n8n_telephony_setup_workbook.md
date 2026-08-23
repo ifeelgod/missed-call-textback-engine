@@ -1,87 +1,62 @@
-# N8N & Telephony Interface Setup Workbook: Field Integration Guide, Testing Protocols & Troubleshooting Procedures
+# N8N & Telephony Interface Setup Workbook: Field Integration Guide, Railway Cloud Hosting, Testing Protocols & Troubleshooting Procedures
 
-> **A Step-by-Step Practical Field Workbook for Deploying N8N, Wiring Telephony Gateways, Stress-Testing Automation Workflows, and Diagnosing System Errors**  
+> **A Step-by-Step Practical Field Workbook for Deploying N8N on Railway (`railway.app`), Wiring Telephony Gateways, Stress-Testing Automation Workflows, and Diagnosing System Errors**  
 > **Written with care for freelance developers, technical consultants, and agency owners**
 
 ---
 
 ## Welcome to Your N8N & Telephony Integration Workbook!
 
-Hey there, friend! Welcome to your hands-on technical workbook. If you have ever felt hesitant about setting up webhooks, configuring Docker VPS servers, or troubleshooting API errors, please take a deep breath. You are in safe hands! 
+Hey there, friend! Welcome to your hands-on technical workbook. If you have ever felt hesitant about setting up webhooks, configuring cloud servers, or troubleshooting API errors, please take a deep breath. You are in safe hands! 
 
-We are going to walk through every single terminal command, environment variable, N8N node setting, and telephony gateway screen together. By the time you finish this workbook, you will have a rock-solid, production-grade automation system that runs flawlessly 24/7/365.
+We are going to walk through every single Railway button click, environment variable, N8N node setting, and telephony gateway screen together. By the time you finish this workbook, you will have a rock-solid, production-grade automation system hosted on **Railway** that runs flawlessly 24/7/365.
 
 ---
 
-# CHAPTER 1: N8N HOSTING & ENVIRONMENT CONFIGURATION
+# CHAPTER 1: N8N HOSTING ON RAILWAY (`railway.app`) & ENVIRONMENT CONFIGURATION
 
 ### Section Roadmap & Overview
-In this chapter, we are going to set up your N8N automation engine on a high-speed Cloud VPS using Docker Compose, configure SSL encryption certificates, and set your environment variables for Twilio, Telnyx, and DeepSeek AI.
+In this chapter, we are going to deploy your N8N automation engine on **Railway** (`railway.app`), attach a managed PostgreSQL database, configure automatic SSL custom domains, and set your production environment variables for Twilio, Telnyx, and DeepSeek AI.
 
-### Why Self-Hosting N8N Matters
-Self-hosting N8N on a $5/month Cloud VPS (Hetzner or DigitalOcean) gives you **unlimited workflow executions** with zero per-execution fees. It guarantees sub-300ms webhook response times and ensures 99.99% uptime for your contractor clients.
-
-### Step-by-Step N8N Deployment Guide
-
-#### 1.1 Docker Compose Deployment (`docker-compose.yml`)
-
-Create a folder `/opt/n8n` on your VPS and paste the following production `docker-compose.yml` file:
-
-```yaml
-version: '3.8'
-
-services:
-  caddy:
-    image: caddy:latest
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./caddy_data:/data
-      - ./Caddyfile:/etc/caddy/Caddyfile
-    environment:
-      - DOMAIN_NAME=n8n.youragency.com
-
-  n8n:
-    image: docker.n8n.io/n8nio/n8n:latest
-    restart: always
-    ports:
-      - "5678:5678"
-    environment:
-      - N8N_HOST=n8n.youragency.com
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=https
-      - NODE_ENV=production
-      - WEBHOOK_URL=https://n8n.youragency.com/
-      - GENERIC_TIMEZONE=America/New_York
-      - N8N_ENCRYPTION_KEY=your_secret_encryption_key_here
-    volumes:
-      - ./n8n_data:/home/node/.n8n
-```
-
-#### 1.2 Caddy Reverse Proxy & Automatic SSL (`Caddyfile`)
-
-Create a `Caddyfile` in the same directory to handle free, automatic SSL certificate renewal via Let's Encrypt:
-
-```text
-n8n.youragency.com {
-    reverse_proxy n8n:5678
-}
-```
-
-Start your server by running: `docker compose up -d`
+### Why Railway Is The Ultimate N8N Hosting Platform
+Hosting N8N on Railway (`railway.app`) eliminates server management entirely! You get:
+- **1-Click Deployment:** No Linux terminal commands required.
+- **Automatic HTTPS SSL:** Railway automatically issues and renews 256-bit SSL certificates for your webhook domains.
+- **Managed PostgreSQL Database:** Automatic daily database backups to persist your credentials and execution logs.
+- **99.99% Cloud Uptime:** Zero downtime deployment with instant auto-healing restarts.
 
 ---
 
-#### 1.3 Environment Variables Setup (`.env`)
+### Step-by-Step Railway Deployment Guide
 
-Store your API keys safely in your N8N environment configuration:
+#### Step 1.1: Create Your Railway Account & Launch N8N
+1. Go to **[railway.app](https://railway.app)** and click **Start a New Project** (sign in via GitHub or Email).
+2. Click **+ New Project** in your Railway Dashboard.
+3. Select **Deploy from Template** and type `N8N` in the search bar.
+4. Select the official **N8N** template (which automatically includes a **PostgreSQL** database service).
+
+#### Step 1.2: Configure Railway Environment Variables
+1. In your Railway project canvas, click on the **N8N Service** card.
+2. Navigate to the **Variables** tab.
+3. Click **Raw Editor** or **Add Variable** and input the following production key-value pairs:
 
 ```env
-# N8N System Keys
-N8N_ENCRYPTION_KEY=super_secret_32_character_key
-N8N_HOST=n8n.youragency.com
+# Railway System & Domain Settings
+N8N_HOST=${{RAILWAY_PUBLIC_DOMAIN}}
+N8N_PORT=5678
+N8N_PROTOCOL=https
+NODE_ENV=production
+WEBHOOK_URL=https://${{RAILWAY_PUBLIC_DOMAIN}}/
+GENERIC_TIMEZONE=America/New_York
+N8N_ENCRYPTION_KEY=super_secret_32_character_encryption_key_12345
+
+# Database Connection (Auto-linked by Railway PostgreSQL)
+DB_TYPE=postgresdb
+DB_POSTGRESDB_HOST=${{POSTGRES_HOST}}
+DB_POSTGRESDB_PORT=${{POSTGRES_PORT}}
+DB_POSTGRESDB_DATABASE=${{POSTGRES_DB}}
+DB_POSTGRESDB_USER=${{POSTGRES_USER}}
+DB_POSTGRESDB_PASSWORD=${{POSTGRES_PASSWORD}}
 
 # DeepSeek AI Credentials
 DEEPSEEK_API_KEY=sk-ds-your-deepseek-api-key-here
@@ -96,21 +71,33 @@ TELNYX_API_KEY=KEY017XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 TELNYX_PUBLIC_KEY=your_telnyx_public_key_here
 ```
 
+#### Step 1.3: Generate & Assign Custom Railway Domain
+1. In your N8N service card on Railway, navigate to **Settings > Networking > Custom Domains**.
+2. Click **Generate Domain** to instantly get a free SSL domain (e.g., `n8n-production-8a2f.up.railway.app`).
+3. *(Optional Custom Agency Domain)*: Type your custom subdomain (e.g., `n8n.youragency.com`) and add the provided CNAME record to your DNS provider (Cloudflare, Namecheap, GoDaddy).
+
+#### Step 1.4: Retrieve Production Webhook URL
+Your master production Webhook URL on Railway is now live at:  
+`https://n8n-production-8a2f.up.railway.app/webhook/missed-call-trigger`  
+*(or `https://n8n.youragency.com/webhook/missed-call-trigger`)*
+
+---
+
 ### Key Takeaways & Chapter Summary
-We deployed N8N on Docker with automatic SSL via Caddy, verified container health, and configured production environment variables for CPaaS gateways and DeepSeek AI.
+We deployed N8N on Railway, linked a managed PostgreSQL database, assigned a custom HTTPS SSL domain, and configured production environment variables for CPaaS gateways and DeepSeek AI.
 
 ### Milestone Celebration!
-**CONGRATULATIONS!** Chapter 1 is complete! Your N8N automation engine is live, secure, and ready for workflow integration!
+**CONGRATULATIONS!** Chapter 1 is complete! Your N8N automation engine is live on Railway, fully encrypted, and ready for telephony integration!
 
 ---
 
 # CHAPTER 2: TELEPHONY GATEWAY (CPaaS) INTERFACE WIRING
 
 ### Section Roadmap & Overview
-In this chapter, we will inspect our full-color telephony integration flowchart, configure webhook listener endpoints for Twilio, Telnyx, Sent.dm, and Sendillo, and wire inbound call triggers.
+In this chapter, we will inspect our full-color telephony integration flowchart, configure webhook listener endpoints for Twilio, Telnyx, Sent.dm, and Sendillo using your Railway Webhook URL, and wire inbound call triggers.
 
 ### Why Telephony Webhook Wiring Matters
-Telephony gateways communicate with N8N via **HTTP POST Webhooks**. Wiring these endpoints correctly ensures that the exact moment a contractor's phone rings 4 times or is declined, CPaaS gateways send caller ID data to N8N in under 300 milliseconds.
+Telephony gateways communicate with N8N via **HTTP POST Webhooks**. Wiring your Railway Webhook URL correctly ensures that the exact moment a contractor's phone rings 4 times or is declined, CPaaS gateways send caller ID data to N8N in under 300 milliseconds.
 
 ### Telephony Interface Architecture & Visual Flowchart
 
@@ -125,7 +112,7 @@ Telephony gateways communicate with N8N via **HTTP POST Webhooks**. Wiring these
   [CPaaS Telephony Gateway Verification (Twilio / Telnyx / Sent.dm / Sendillo)]
                  │
                  ▼
-  [N8N Automation Logic Engine & DeepSeek AI Intent Classifier]
+  [N8N Automation Logic Engine on Railway & DeepSeek AI Intent Classifier]
                  │
                  ▼
   [Outbound SMS Dispatch & Diagnostics Audit (<22s Latency)]
@@ -133,20 +120,20 @@ Telephony gateways communicate with N8N via **HTTP POST Webhooks**. Wiring these
 
 ---
 
-#### 2.2 Twilio Webhook Configuration Protocol
+#### 2.2 Twilio Webhook Configuration Protocol (Railway URL)
 1. Log into your **Twilio Console** and navigate to **Phone Numbers > Active Numbers**.
 2. Click your virtual number to open settings.
-3. Under **Voice & Fax > A CALL COMES IN**, select **Webhook** and paste:  
-   `https://n8n.youragency.com/webhook/missed-call-trigger` (HTTP POST).
+3. Under **Voice & Fax > A CALL COMES IN**, select **Webhook** and paste your Railway webhook URL:  
+   `https://n8n-production-8a2f.up.railway.app/webhook/missed-call-trigger` (HTTP POST).
 4. Under **Messaging > A MESSAGE COMES IN**, select **Webhook** and paste:  
-   `https://n8n.youragency.com/webhook/incoming-sms-optout` (HTTP POST).
+   `https://n8n-production-8a2f.up.railway.app/webhook/incoming-sms-optout` (HTTP POST).
 5. Click **Save**.
 
-#### 2.3 Telnyx Interface Configuration Protocol
+#### 2.3 Telnyx Interface Configuration Protocol (Railway URL)
 1. Log into your **Telnyx Portal** and navigate to **Messaging Profiles**.
 2. Click **Create Messaging Profile** (e.g., *Speed-to-Lead Profile*).
-3. Under **Inbound Settings > Webhook URL**, paste:  
-   `https://n8n.youragency.com/webhook/missed-call-trigger` (HTTP POST).
+3. Under **Inbound Settings > Webhook URL**, paste your Railway URL:  
+   `https://n8n-production-8a2f.up.railway.app/webhook/missed-call-trigger` (HTTP POST).
 4. Assign your purchased Telnyx number to this Messaging Profile.
 
 #### 2.4 Sent.dm & Sendillo Gateway Protocols
@@ -154,10 +141,10 @@ Telephony gateways communicate with N8N via **HTTP POST Webhooks**. Wiring these
 - **Sendillo (`sendillo.com`):** Direct wholesale agency webhook listener for GoHighLevel CRM instances.
 
 ### Key Takeaways & Chapter Summary
-We reviewed the full-color integration flowchart, configured Twilio/Telnyx webhook endpoints, and verified instant call trigger communication.
+We reviewed the full-color integration flowchart, configured Twilio/Telnyx webhook endpoints with your Railway URL, and verified instant call trigger communication.
 
 ### Milestone Celebration!
-**FANTASTIC JOB!** Chapter 2 is complete! Your telephony gateways are officially wired to your N8N automation engine!
+**FANTASTIC JOB!** Chapter 2 is complete! Your telephony gateways are officially wired to your Railway-hosted N8N engine!
 
 ---
 
@@ -255,31 +242,31 @@ Rules: Under 150 chars, no AI mention, include 'Reply STOP to cancel'. If Busine
 We reviewed all 7 N8N workflow nodes, validated phone sanitization regex, configured DeepSeek AI system prompts, and set up outbound carrier dispatch.
 
 ### Milestone Celebration!
-**YOU DID IT!** Chapter 3 is finished! Your complete N8N workflow is fully configured and ready for live testing!
+**YOU DID IT!** Chapter 3 is finished! Your complete N8N workflow is fully configured on Railway and ready for live testing!
 
 ---
 
 # CHAPTER 4: SYSTEM TESTING, PERFORMANCE AUDITING & STRESS TESTS
 
 ### Section Roadmap & Overview
-In this chapter, we will execute a 5-step live functional test, perform load/stress tests to verify stability during peak call spikes, and audit SMS character segment limits.
+In this chapter, we will execute a 5-step live functional test on Railway, perform load/stress tests to verify stability during peak call spikes, and audit SMS character segment limits.
 
 ### Why Performance Auditing Matters
-Testing your workflow under real-world conditions guarantees that when a contractor receives 5 missed calls in 10 minutes during a winter storm, your N8N engine processes every single call without dropping webhooks or crashing servers.
+Testing your workflow on Railway guarantees that when a contractor receives 5 missed calls in 10 minutes during a winter storm, your Railway engine processes every single call without dropping webhooks or crashing servers.
 
 ### 5-Step Live Validation & Stress Test Protocol
 
 ```
 [TEST STEP 1: Inbound Call Webhook Verification]
 Action: Call virtual gateway number from test mobile phone.
-Benchmark: Webhook POST payload logged in N8N execution dashboard in <300ms.
+Benchmark: Webhook POST payload logged in N8N execution dashboard on Railway in <300ms.
 
 [TEST STEP 2: Opt-Out Suppression Filter Audit]
 Action: Pass a test phone number listed in suppression database.
 Benchmark: Filter node halts execution instantly; zero outbound SMS dispatched.
 
 [TEST STEP 3: Human Delay Buffer Audit]
-Action: Observe execution log timer.
+Action: Observe execution log timer on Railway dashboard.
 Benchmark: Wait node holds execution for exactly 20.0 seconds.
 
 [TEST STEP 4: DeepSeek AI Latency & Length Audit]
@@ -294,29 +281,29 @@ Benchmark: SMS arrives within 22 seconds total; single SMS segment billed ($0.00
 ---
 
 #### 4.1 Concurrent Call Stress Test
-Run a concurrent load test by simulating 10 simultaneous HTTP POST requests to your N8N webhook endpoint using Apache Bench or cURL:
+Run a concurrent load test by simulating 10 simultaneous HTTP POST requests to your Railway webhook endpoint using Apache Bench or cURL:
 
 ```bash
-# Simulate 10 concurrent missed call webhooks
-ab -n 10 -c 10 -p test_payload.json -T "application/json" https://n8n.youragency.com/webhook/missed-call-trigger
+# Simulate 10 concurrent missed call webhooks to Railway
+ab -n 10 -c 10 -p test_payload.json -T "application/json" https://n8n-production-8a2f.up.railway.app/webhook/missed-call-trigger
 ```
-- **Target Performance Metric:** 100% HTTP 200 Success Rate; Zero 504 Gateway Timeouts.
+- **Target Performance Metric:** 100% HTTP 200 Success Rate; Zero 504 Gateway Timeouts on Railway.
 
 ### Key Takeaways & Chapter Summary
-We executed the 5-step live validation test, stress-tested webhook concurrency under load, and verified single-segment SMS delivery math.
+We executed the 5-step live validation test, stress-tested webhook concurrency under load on Railway, and verified single-segment SMS delivery math.
 
 ### Milestone Celebration!
-**WOOHOO!** Chapter 4 is complete! Your system is officially tested, verified, and benchmarked for high-performance production!
+**WOOHOO!** Chapter 4 is complete! Your Railway-hosted system is officially tested, verified, and benchmarked for high-performance production!
 
 ---
 
 # CHAPTER 5: MASTER TROUBLESHOOTING & ERROR DIAGNOSTICS SOP
 
 ### Section Roadmap & Overview
-In this final chapter, we provide a complete troubleshooting diagnostic matrix covering every potential runtime error, carrier status code, and API failure—along with step-by-step fix protocols.
+In this final chapter, we provide a complete troubleshooting diagnostic matrix covering every potential runtime error, Railway deployment status, and API failure—along with step-by-step fix protocols.
 
 ### Why Troubleshooting SOPs Matter
-Having clear diagnostic procedures takes all the stress out of system management. If an error occurs, you can identify the exact root cause and fix it in under 60 seconds.
+Having clear diagnostic procedures takes all the stress out of system management. If an error occurs, you can identify the exact root cause and fix it in under 60 seconds on Railway.
 
 ---
 
@@ -324,10 +311,10 @@ Having clear diagnostic procedures takes all the stress out of system management
 
 | Diagnostic Error / Status | Root Cause | Immediate Step-by-Step Fix Protocol |
 | :--- | :--- | :--- |
-| **1. Webhook 404 / Connection Refused** | N8N container offline, Caddy SSL renewal failed, or URL path typo in Twilio console. | 1. SSH into VPS and run `docker ps` to verify N8N status.<br>2. Verify domain DNS records point to VPS IP.<br>3. Check `Caddyfile` reverse proxy settings and restart container: `docker compose restart`. |
+| **1. Webhook 404 / Connection Refused** | Railway deployment building, variable missing, or URL path typo in Twilio console. | 1. Open Railway Dashboard > N8N Service > View **Deployments** log.<br>2. Verify `WEBHOOK_URL` environment variable includes `https://` and trailing `/`.<br>3. Click **Redeploy** on Railway. |
 | **2. Twilio Error 21614 / Delivery Failure** | Unregistered A2P 10DLC campaign, carrier spam filtering, or invalid phone formatting. | 1. Ensure phone number is formatted to E.164 (`+1NXXNXXXXXX`).<br>2. Submit business EIN for A2P 10DLC Brand Registration in Twilio Console.<br>3. Verify message body includes mandatory footer: `"Reply STOP to cancel"`. |
-| **3. Double Text Messaging to Customer** | Customer calls back during 20s wait buffer; timer fires redundant text. | 1. Add active call interception node before Wait node.<br>2. Store caller ID key (`active_call_[PHONE]`) in Redis/memory.<br>3. Cancel wait timer if secondary inbound call event is detected. |
-| **4. DeepSeek API Timeout / JSON Parse Error** | API key invalid, DeepSeek rate limit reached, or model output format error. | 1. Check `DEEPSEEK_API_KEY` environment variable in `.env`.<br>2. Add N8N Code fallback node: If AI response fails, default to standard template: *"Hey! On a job site & missed your call. How can we help? Reply STOP to cancel."* |
+| **3. Double Text Messaging to Customer** | Customer calls back during 20s wait buffer; timer fires redundant text. | 1. Add active call interception node before Wait node.<br>2. Store caller ID key (`active_call_[PHONE]`) in PostgreSQL database on Railway.<br>3. Cancel wait timer if secondary inbound call event is detected. |
+| **4. DeepSeek API Timeout / JSON Parse Error** | API key invalid, DeepSeek rate limit reached, or model output format error. | 1. Check `DEEPSEEK_API_KEY` in Railway Variables tab.<br>2. Add N8N Code fallback node: If AI response fails, default to standard template: *"Hey! On a job site & missed your call. How can we help? Reply STOP to cancel."* |
 | **5. CCF Fails to Trigger (Phone Rings Forever)** | Contractor entered incorrect star code or carrier call forwarding option disabled. | 1. Have contractor redial star code: Verizon (`*71[NUMBER]`), AT&T (`*61*[NUMBER]#`), T-Mobile (`**61*[NUMBER]#`).<br>2. Verify contractor's mobile account supports Conditional Call Forwarding.<br>3. Test by calling contractor line from secondary test phone. |
 | **6. Multi-Segment Double Billing** | Outbound SMS body exceeds 160 GSM characters due to special characters or long text. | 1. In Node 5 process code, add hard length truncation: `smsContent.substring(0, 155) + " STOP"`.<br>2. Remove non-GSM emoji characters that force Unicode encoding (reducing segment size to 70 chars). |
 
@@ -335,5 +322,5 @@ Having clear diagnostic procedures takes all the stress out of system management
 
 ### Workbook Graduation & Final Summary
 
-**CONGRATULATIONS! YOU HAVE GRADUATED FROM THE N8N & TELEPHONY SETUP WORKBOOK!**  
-Take a huge victory lap! You now hold a complete, production-ready field manual for hosting, wiring, testing, and troubleshooting your **30-Minute Missed-Call Text-Back Engine**. You are fully equipped to build a highly profitable, scalable recurring revenue business!
+**CONGRATULATIONS! YOU HAVE GRADUATED FROM THE RAILWAY N8N & TELEPHONY SETUP WORKBOOK!**  
+Take a huge victory lap! You now hold a complete, production-ready field manual for hosting on Railway, wiring CPaaS gateways, testing, and troubleshooting your **30-Minute Missed-Call Text-Back Engine**. You are fully equipped to build a highly profitable, scalable recurring revenue business!

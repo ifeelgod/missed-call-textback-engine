@@ -21,7 +21,7 @@ Our technical engineering team handles the complete N8N hosting, Twilio/Telnyx g
 
 ## Everything Included In Tier 3 ($124.99)
 
-- ⚡ **Complete N8N Cloud Deployment:** Our team provisions and hosts your N8N workflow engine on a secure Cloud VPS so you never have to configure servers.
+- ⚡ **Complete Railway Cloud Deployment:** Our team provisions and deploys your N8N workflow engine on Railway (`railway.app`) with a managed PostgreSQL database so you never have to configure servers.
 - 📞 **Twilio / Telnyx API Webhook Wiring:** We configure your virtual telephony gateway, connect webhook POST endpoints, and set up your Account SID and Auth Tokens.
 - 🧪 **1-on-1 Live Line Validation Call:** We run our 5-step live validation test with you over the phone to verify 20-second SMS delivery and opt-out suppressions.
 - 📋 **Post-Purchase Intake Redirect:** Instant post-purchase redirect to our 15-minute intake form (`15_minute_intake_questionnaire.md`) so we gather your business hours and carrier details immediately.

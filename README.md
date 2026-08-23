@@ -13,7 +13,7 @@ Welcome to the **30-Minute Missed-Call Text-Back Engine** repository! If you are
 
 ## 🛠️ Complete Technical Workbooks & Field Guides
 
-- **[`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md):** Complete N8N & Telephony Interface Setup Workbook (Docker VPS hosting, Twilio/Telnyx/Sent.dm/Sendillo webhook wiring, node-by-node JavaScript code, 5-step stress testing, and master troubleshooting SOP matrix).
+- **[`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md):** Complete N8N & Telephony Interface Setup Workbook (Railway Cloud hosting, Twilio/Telnyx/Sent.dm/Sendillo webhook wiring, node-by-node JavaScript code, 5-step stress testing, and master troubleshooting SOP matrix).
 - **[`payhip_setup_masterclass_ebook.md`](./payhip_setup_masterclass_ebook.md):** eBook guide for setting up Payhip products, building a 20x sales page that sells, and executing the 5-step testing protocol.
 - **[`15_minute_intake_questionnaire.md`](./15_minute_intake_questionnaire.md):** Client technical intake questionnaire with customizable agency header card.
 
@@ -93,7 +93,7 @@ Every document in this repository follows a clean, 5-part teaching approach embe
 
 ## 🚀 Quick Start Steps
 
-1. **Follow N8N & Telephony Workbook:** Open [`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md) to set up Docker, wire Twilio/Telnyx webhooks, and execute load testing.
+1. **Follow N8N & Telephony Workbook:** Open [`n8n_telephony_setup_workbook.md`](./n8n_telephony_setup_workbook.md) to deploy on Railway (`railway.app`), wire Twilio/Telnyx webhooks, and execute load testing.
 2. **Copy Payhip Standard Descriptions:** Paste [`payhip_standard_editor_tier2_standard.md`](./payhip_standard_editor_tier2_standard.md) into your Payhip product description editor.
 3. **Host HTML Sales Pages:** Open [`sales_page_master.html`](./sales_page_master.html) in your browser or landing page builder.
 4. **Import N8N Workflow:** Load `n8n_missed_call_textback_workflow.json` into N8N.

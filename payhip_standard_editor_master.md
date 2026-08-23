@@ -58,7 +58,7 @@ When you hand contractors this 20-second Missed-Call Text-Back system, you aren'
 ### 🔹 Tier 3: DFY Agency Installation ($124.99)
 *White-Glove Hands-Free Setup*
 - ✔ **Everything in Tier 2 Standard Package**
-- ✔ N8N Cloud VPS Host Setup
+- ✔ N8N Railway Cloud Deployment Setup
 - ✔ Twilio/Telnyx API Webhook Wiring
 - ✔ 1-on-1 Live Line Validation Test Call
 - ✔ Post-Purchase Intake Form Redirect

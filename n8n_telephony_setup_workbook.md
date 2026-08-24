@@ -41,22 +41,27 @@ Hosting N8N on Railway (`railway.app`) eliminates server management entirely! Yo
 3. Click **Raw Editor** or **Add Variable** and input the following production key-value pairs:
 
 ```env
-# Railway System & Domain Settings
-N8N_HOST=${{RAILWAY_PUBLIC_DOMAIN}}
-N8N_PORT=5678
-N8N_PROTOCOL=https
-NODE_ENV=production
-WEBHOOK_URL=https://${{RAILWAY_PUBLIC_DOMAIN}}/
-GENERIC_TIMEZONE=America/New_York
+# Railway System & Webhook Domain Settings
+WEBHOOK_URL="https://${{RAILWAY_PUBLIC_DOMAIN}}"
+PORT="5678"
+N8N_EXPRESS_TRUST_PROXY="true"
+N8N_PROXY_HOPS="1"
+N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS="true"
+N8N_DEFAULT_BINARY_DATA_MODE="filesystem"
 N8N_ENCRYPTION_KEY=super_secret_32_character_encryption_key_12345
+GENERIC_TIMEZONE=America/New_York
 
-# Database Connection (Auto-linked by Railway PostgreSQL)
-DB_TYPE=postgresdb
-DB_POSTGRESDB_HOST=${{POSTGRES_HOST}}
-DB_POSTGRESDB_PORT=${{POSTGRES_PORT}}
-DB_POSTGRESDB_DATABASE=${{POSTGRES_DB}}
-DB_POSTGRESDB_USER=${{POSTGRES_USER}}
-DB_POSTGRESDB_PASSWORD=${{POSTGRES_PASSWORD}}
+# Railway Managed PostgreSQL Database Credentials
+DB_TYPE="postgresdb"
+DB_POSTGRESDB_HOST="${{Postgres.RAILWAY_TCP_PROXY_DOMAIN}}"
+DB_POSTGRESDB_PORT="${{Postgres.RAILWAY_TCP_PROXY_PORT}}"
+DB_POSTGRESDB_DATABASE="${{Postgres.PGDATABASE}}"
+DB_POSTGRESDB_USER="${{Postgres.PGUSER}}"
+DB_POSTGRESDB_PASSWORD="${{Postgres.PGPASSWORD}}"
+
+# Database Execution Pruning (Optimizes Performance & Disk Storage)
+EXECUTIONS_DATA_PRUNE="true"
+EXECUTIONS_DATA_PRUNE_MAX_COUNT="200"
 
 # DeepSeek AI Credentials
 DEEPSEEK_API_KEY=sk-ds-your-deepseek-api-key-here

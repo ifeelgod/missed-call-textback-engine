@@ -77,9 +77,11 @@ TELNYX_PUBLIC_KEY=your_telnyx_public_key_here
 ```
 
 #### Step 1.3: Generate & Assign Custom Railway Domain
-1. In your N8N service card on Railway, navigate to **Settings > Networking > Custom Domains**.
-2. Click **Generate Domain** to instantly get a free SSL domain (e.g., `n8n-production-8a2f.up.railway.app`).
-3. *(Optional Custom Agency Domain)*: Type your custom subdomain (e.g., `n8n.youragency.com`) and add the provided CNAME record to your DNS provider (Cloudflare, Namecheap, GoDaddy).
+1. In your N8N service card on Railway, navigate to **Settings > Networking > Public Networking**.
+2. Click **Generate Domain** (or **+ Custom Domain**).
+3. In the **Select a port** dropdown, select port **`5678`**.
+4. Click **Generate Domain** to instantly generate your free SSL domain (e.g., `n8n-production-b500.up.railway.app`).
+5. *(Optional Custom Agency Domain)*: Type your custom subdomain (e.g., `n8n.youragency.com`) pointing to port **`5678`** and add the provided CNAME record to your DNS provider (Cloudflare, Namecheap, GoDaddy).
 
 #### Step 1.4: Retrieve Production Webhook URL
 Your master production Webhook URL on Railway is now live at:  
